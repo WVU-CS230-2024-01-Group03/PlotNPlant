@@ -1,0 +1,9 @@
+
+.wrapper h1 {
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.wrapper img {
+  width: 80px; /* Set the width of the image */
+}
