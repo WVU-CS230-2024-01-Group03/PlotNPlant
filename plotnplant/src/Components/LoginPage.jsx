@@ -27,6 +27,9 @@ const LoginPage = () => {
             <div className="register-account">
               <p>Don't have an account? <Link to="/register">Register</Link></p>
             </div>
+            <div className="Calendar">
+              <p>Want to view the calendar? <Link to="/cal">Calendar</Link></p>
+            </div>
 
         </form>
       </div>
