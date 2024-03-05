@@ -1,7 +1,9 @@
 @import "rsuite/dist/rsuite.css";
 
+html {background-color: rgb(224, 255, 243)}
 .App {
   text-align: center;
+  background: rgb(224, 255, 243);
 }
 .App-logo {
   height: 40vmin;
@@ -35,4 +37,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+div{
+  background-color: lightcyan;
+}
+img{
+  position: relative;
+}
+
+var{
+  position: fixed;
+  right: 80px;
 }
