@@ -1,55 +1,57 @@
-.wrapper h1{
+.wrapper_loginpage h1{
   font-family: 'Calibri', Times, serif;
   margin-bottom: 5px;
   font-size: 64pt;
 }
-.wrapper img {
+.wrapper_loginpage img {
   width: 75px;
   margin-bottom: 30px;
 }
 html{
   background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFybXxlbnwwfHwwfHx8MA%3D%3D");
   background-size:cover;
-  background-position: center;
+  background-position: right;
   height: 100%;
-  padding: 10px;
+  padding: 100px;
 }
-.wrapper {
-  width: 900px;
+.wrapper_loginpage {
+  width: 800px;
   height:min-content;
-  margin-top: 200px; 
+  margin-top: 75px; 
+  
   background-color: rgba(253, 253, 253, 0.7);
-  border-radius: 50%;
+  border-radius: 75%;
 }
-.wrapper .input-box{
+.wrapper_loginpage .login_input_box{
   position: relative;
   height: 50px;
 }
-.input-box input{
+.login_input_box input{
   width: 85%;
   height: 70%;
   background: transparent;
   outline: none;
   border: 2px solid;
-  border-radius: 40px;
+  border-radius: 100px;
   font-size: 16px;
-  padding: 20px 40px 20px 20px;
+  padding: 20px 40px 20px 40px;
   font-family: 'Times New Roman', Times, serif;
 }
-.input-box input::placeholder{
+.login_input_box input::placeholder{
   color: black;
 }
-.input-box .icon{
-  position:absolute;
-  right: 50px;
-  top: 20%;
-  font-size: 16px;
+.login_input_box .login_icon{
+  position: absolute;
+  right: 765px;
+  top: 25%;
+  font-size: 18px;
 }
-.wrapper button{
+.wrapper_loginpage button{
   width: 30%;
   height: 25px;
   margin-top: 10px;
   border: none;
+  margin-left: 100px;
   outline: none;
   border-radius: 45px;
   box-shadow: 0 0 10px rgba(0, 0, 0, .1);
@@ -57,17 +59,17 @@ html{
   font-size: 16px;
   color: black;
 }
-.wrapper .register-account {
+.wrapper_loginpage .login_register_account {
   text-align: center;
   margin-top: 20px;
 }
-.wrapper .register-account{
+.wrapper_loginpage .login_register_account{
   text-align: center;
 }
-.register-account p a {
+.login_register_account p a {
   color: rgb(23, 23, 145);
   text-decoration: none;
 }
-.register-account p a:hover{
+.login_register_account p a:hover{
   text-decoration: underline;
 }

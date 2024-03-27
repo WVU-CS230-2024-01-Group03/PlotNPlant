@@ -1,21 +1,21 @@
-.wrapper_registerpage h1{
+.wrapper_settingspage h1{
     font-family: 'Calibri', Times, serif;
     margin-bottom: 5px;
     font-size: 64pt;
   }
-  .wrapper_registerpage img {
+  .wrapper_settingspage img {
     width: 150px;
     height: vh;
     margin-bottom: 30px;
   }
   html{
-    /* background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFybXxlbnwwfHwwfHx8MA%3D%3D"); */
+    background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFybXxlbnwwfHwwfHx8MA%3D%3D");
     background-size:cover;
     background-position: center;
     height: 100%;
     padding: 10px;
   }
-  .wrapper_registerpage {
+  .wrapper_settingspage {
     width: 900px;
     height:min-content;
     margin-top: 150px; 
@@ -24,7 +24,7 @@
     align-self: center;
 
   }
-  .wrapper_registerpage .input-box{
+  .wrapper_settingspage .input-box{
     position: relative;
     height: 50px;
   }
@@ -48,7 +48,7 @@
     top: 5%;
     font-size: 16px;
   }
-  .wrapper_registerpage button{
+  .wrapper_settingspage button{
     width: 30%;
     height: 35px;
     margin-top: 10px;
@@ -60,17 +60,5 @@
     font-size: 16px;
     color: black;
   }
-  .wrapper_registerpage .register-account {
-    text-align: center;
-    margin-top: 20px;
-  }
-  .wrapper_registerpage .register-account{
-    text-align: center;
-  }
-  .register-account p a {
-    color: rgb(23, 23, 145);
-    text-decoration: none;
-  }
-  .register-account p a:hover{
-    text-decoration: underline;
-  }
+
+  
