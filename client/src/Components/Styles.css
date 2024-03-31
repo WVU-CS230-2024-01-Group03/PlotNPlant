@@ -1,3 +1,9 @@
+.App {
+  text-align: center;
+}
+
+
+
 .wrapper h1{
   font-family: 'Calibri', Times, serif;
   margin-bottom: 5px;
@@ -7,12 +13,14 @@
   width: 75px;
   margin-bottom: 30px;
 }
+
 /* html{
   background-size:cover;
   background-position: center;
   height: 100%;
   padding: 10px;
 } */
+
 .page{
   background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFybXxlbnwwfHwwfHx8MA%3D%3D");
   background-size: cover;
@@ -22,12 +30,16 @@
   padding: 10px;
 }
 .wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 900px;
-  height:min-content;
-  margin-top: 200px; 
+  height: 550px;
   background-color: rgba(253, 253, 253, 0.7);
-  border-radius: 50%;
+  border-radius: 7%;
 }
+
 .wrapper .input-box{
   position: relative;
   height: 50px;
@@ -52,7 +64,7 @@
   top: 20%;
   font-size: 16px;
 }
-.wrapper button{
+/* .wrapper button{
   width: 30%;
   height: 25px;
   margin-top: 10px;
@@ -63,7 +75,7 @@
   cursor: pointer;
   font-size: 16px;
   color: black;
-}
+} */
 .wrapper .register-account {
   text-align: center;
   margin-top: 20px;
@@ -77,4 +89,49 @@
 }
 .register-account p a:hover{
   text-decoration: underline;
+}
+
+.button {
+  display: inline-block;
+  width: 75%;
+  padding: 10px 10px;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #030303;
+  background-color: #4CAF50;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #4CAF50;
+}
+.text-input {
+  margin:5px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #45a049;
+}
+
+.login-h2{
+  margin:5px;
+  font-size: 35px;
 }

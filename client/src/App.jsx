@@ -1,17 +1,14 @@
-// import logo from './logo.svg';
-import './App.css';
+import './Components/Styles.css';
 import LoginPage from './Components/LoginPage';
 import RegisterPage from './Components/RegisterPage';
+import Auth from './Components/auth';
 import Cal from './Components/Cal';
+import Settings from './Components/Settings';
 import * as React from "react";
 import {BrowserRouter, Routes, Route } from "react-router-dom";
-import {useEffect} from 'react'
+
 
 function App() {
-  useEffect(()=> {
-    fetch('http://localhost:8081/users')
-  },[])
-
 
   return (
     <div className="App">
@@ -21,6 +18,7 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
         <Route path="cal" element = {<Cal />} />
+        <Route path="settings" element = {<Settings />} />
       </Routes>
     </BrowserRouter>
     </div>
