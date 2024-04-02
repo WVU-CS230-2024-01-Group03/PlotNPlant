@@ -135,3 +135,12 @@
   margin:5px;
   font-size: 35px;
 }
+.reset-password-input{
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+  width: 500px;
+}
