@@ -1,15 +1,18 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { updateEmail, updatePassword, sendEmailVerification, applyActionCode, sendPasswordResetEmail, getAuth } from 'firebase/auth';
+import { updateEmail, updatePassword, sendEmailVerification, applyActionCode, sendPasswordResetEmail, getAuth, verifyBeforeUpdateEmail } from 'firebase/auth';
 import {auth} from "../Config/firebase";
 import './Home.css'
+import { Link } from 'react-router-dom';
+
+
 
 function UserSettings() {
  const [currentUser, setCurrentUser] = useState('');
  const [newEmail, setNewEmail] = useState('');
  const [newPassword, setNewPassword] = useState('');
 
- useEffect(() => {
+
   const fetchCurrentUser = async () => {
     try {
       const user = auth.currentUser;
@@ -23,18 +26,21 @@ function UserSettings() {
     }
   };
 
-  fetchCurrentUser();
-}, []);
+  useEffect(() => {
+    fetchCurrentUser();
+  });
 
+  //function to handle email change, uses verifyBeforeUpdateEmail to send verification email to new email
   const handleChangeEmail = async () => {
-    try{
-      await updateEmail(auth.currentUser, newEmail);
+    const auth = getAuth();
+    const user = auth.currentUser;
+    setNewEmail(newEmail)
+    await verifyBeforeUpdateEmail(auth.currentUser, newEmail)
+    .then(() => {
+      alert("Email verification has been sent. Check your email and login with the new email.");
       setCurrentUser(newEmail);
-      setNewEmail('');
-      console.log("Email updated successfully.");
-    }catch(err){
-      console.log(err);
-    }
+      fetchCurrentUser();
+    })
   };
 
   //function to send password reset email to the currently logged in user
@@ -62,7 +68,10 @@ function UserSettings() {
       <div className="reset-password-container">
         <p>
           Click here to change your email:
-          <button className="reset-password-button" onClick={handleChangeEmail}>Change Email</button>
+          <input type="email" className="text-input" placeholder="Enter new email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
+          {/*} <Link to="/"> */}
+            <button className="reset-password-button" onClick={handleChangeEmail}>Change Email</button>
+          {/*</Link>*/}
         </p>
       </div>
       <div className="reset-password-container">
@@ -70,6 +79,9 @@ function UserSettings() {
             <button className="reset-password-button" onClick={handleChangePassword}>Change Password</button>
           </p>
       </div>
+      <Link to="/homepage">
+        <button className="reset-password-button">Home</button>
+      </Link>
     </div>
   )
 }
