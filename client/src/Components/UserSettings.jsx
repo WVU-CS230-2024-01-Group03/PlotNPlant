@@ -1,18 +1,20 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import { updateEmail, updatePassword, sendEmailVerification, applyActionCode, sendPasswordResetEmail, getAuth, verifyBeforeUpdateEmail } from 'firebase/auth';
-import {auth} from "../Config/firebase";
-import './Home.css'
-import { Link } from 'react-router-dom';
-
-
+import React from "react";
+import { useState, useEffect } from "react";
+import {
+  sendPasswordResetEmail,
+  getAuth,
+  verifyBeforeUpdateEmail,
+} from "firebase/auth";
+import { auth } from "../Config/firebase";
+import "./Home.css";
+import { Link } from "react-router-dom";
 
 function UserSettings() {
- const [currentUser, setCurrentUser] = useState('');
- const [newEmail, setNewEmail] = useState('');
- const [newPassword, setNewPassword] = useState('');
+  //states for current user, email, and password
+  const [currentUser, setCurrentUser] = useState("");
+  const [newEmail, setNewEmail] = useState("");
 
-
+  //fetchs current user based on auth
   const fetchCurrentUser = async () => {
     try {
       const user = auth.currentUser;
@@ -33,14 +35,14 @@ function UserSettings() {
   //function to handle email change, uses verifyBeforeUpdateEmail to send verification email to new email
   const handleChangeEmail = async () => {
     const auth = getAuth();
-    const user = auth.currentUser;
-    setNewEmail(newEmail)
-    await verifyBeforeUpdateEmail(auth.currentUser, newEmail)
-    .then(() => {
-      alert("Email verification has been sent. Check your email and login with the new email.");
+    setNewEmail(newEmail);
+    await verifyBeforeUpdateEmail(auth.currentUser, newEmail).then(() => {
+      alert(
+        "Email verification has been sent. Check your email and login with the new email."
+      );
       setCurrentUser(newEmail);
       fetchCurrentUser();
-    })
+    });
   };
 
   //function to send password reset email to the currently logged in user
@@ -48,42 +50,56 @@ function UserSettings() {
     const auth = getAuth();
     sendPasswordResetEmail(auth, auth.currentUser.email)
       .then(() => {
-        alert("Password email sent. Check your inbox.")
+        alert("Password email sent. Check your inbox.");
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
+        console.log(errorCode);
       });
   };
 
-
   return (
     <div>
-      <h1>
-        Settings
-      </h1>
+      <h1>Settings</h1>
       <div className="current-user-email">
         <h1>Current User Email: {currentUser}</h1>
       </div>
       <div className="reset-password-container">
         <p>
           Click here to change your email:
-          <input type="email" className="text-input" placeholder="Enter new email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} />
-          {/*} <Link to="/"> */}
-            <button className="reset-password-button" onClick={handleChangeEmail}>Change Email</button>
-          {/*</Link>*/}
+          <input
+            type="email"
+            className="text-input"
+            placeholder="Enter new email"
+            value={newEmail}
+            onChange={(e) => setNewEmail(e.target.value)}
+          />
+          <Link to="/">
+            <button
+              className="reset-password-button"
+              onClick={handleChangeEmail}
+            >
+              Change Email
+            </button>
+          </Link>
         </p>
       </div>
       <div className="reset-password-container">
-          <p>Click here to change your password: 
-            <button className="reset-password-button" onClick={handleChangePassword}>Change Password</button>
-          </p>
+        <p>
+          Click here to change your password:
+          <button
+            className="reset-password-button"
+            onClick={handleChangePassword}
+          >
+            Change Password
+          </button>
+        </p>
       </div>
       <Link to="/homepage">
         <button className="reset-password-button">Home</button>
       </Link>
     </div>
-  )
+  );
 }
 
-export default UserSettings
+export default UserSettings;
