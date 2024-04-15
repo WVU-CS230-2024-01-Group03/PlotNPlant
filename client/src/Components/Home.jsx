@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 
 function Home() {
+  const[active, setActive] = useState("");
   const navigate = useNavigate();
 
   const logout = async () => {
@@ -28,13 +29,13 @@ function Home() {
           <button className="btn settings-button">Settings</button>
         </Link>
       </div>
-        <div className="home-container">
-          <div className="split left">
-            <h2>Map</h2>
+        <div className={`home-container ${active}`}>
+          <div className="split left" onMouseEnter={()=>setActive('active-left')} onMouseLeave={()=>setActive("")}>
+            <h3>Map</h3>
             <a href="#" className="map-button">Click Here To View Map</a>
           </div>
-          <div className="split right">
-            <h2>Calender</h2>
+          <div className="split right" onMouseEnter={()=>setActive('active-right')} onMouseLeave={()=>setActive("")}>
+            <h3>Calender</h3>
             <a href="/cal" className="calender-button">Click Here To View Calender</a>
           </div>
         </div>
