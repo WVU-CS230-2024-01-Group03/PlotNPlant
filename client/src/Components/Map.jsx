@@ -4,6 +4,8 @@ import { Marker } from "react-leaflet";
 import "./Styles.css";
 export default function Map() {
   //Map to center around west virginia coordinates with a zoom of 8
+  //longlat.net to find coordinates of citys
+
   return (
     <div>
       <h1>Map of West Virginia</h1>

@@ -1,9 +1,16 @@
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
-
+import { signOut } from "firebase/auth";
+import { auth } from "../Config/firebase";
 function Home() {
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <div>
       <div className="home-top-bar">
@@ -18,7 +25,7 @@ function Home() {
       <div className="home-container">
         <div className="split left">
           <h2>Map</h2>
-          <a href="#" className="map-button">
+          <a href="/map" className="map-button">
             Click Here To View Map
           </a>
         </div>
