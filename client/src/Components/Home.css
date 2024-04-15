@@ -1,6 +1,6 @@
 .home-top-bar {
   display: flex;
-  background-color: #45a049;
+  background-color: #45a077;
   width: 100%;
   position: fixed;
   top: 0;
@@ -11,41 +11,41 @@
   height: 50px;
   padding: 6px;
   color: white;
-  
+  z-index: 1;
 }
-.logout-button {
+ /*logout and settings button*/
+.btn {
+  position: relative;
+  background: #45a077;
+  color: white;
+  padding: 0;
+  margin: 30px;
   margin-left: auto;
   width: 100px;
   height: 35px;
-  border-radius: 40px;
-  border: solid 2px black;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
 }
-.image-container {
-  display: flex;
-  margin-top: 125px; /* Adjust the margin to create space below the top bar */
-}
-.map-img{
-  margin-left: 150px;
-}
-.calender-img{
+.btn::after{
+  content: '';
+  position: absolute;
   width: 100%;
-  margin-right: 100px;
+  height: 0.175rem;
+  background: white;
+  left: 0;
+  bottom:0;
+  transform: scale(0, 1);
+  transform-origin: 0% 100%;
+  transition: transform 0.3s ease;
 }
-.map-img img{
-  width: 80%;
-  height: 125%;
+.btn:hover::after{
+  transform: scale(1, 1);
 }
-.calender-img img{
-  width: 50%;
-  height: 125%;
-}
-.image-text{
-  color: black;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
+
 .reset-password-container{
   color: #45a049;
   font-size: 25px;
@@ -67,3 +67,92 @@
 .current-user-email{
   margin-bottom: 30px;
 }
+.delete-account-container{
+  color: #45a049;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.delete-account-button{
+  margin-left: 20px;
+  height: 40px;
+  width: 150px;
+  color: white;
+  border: 2px solid black;
+  border-radius: 40px;
+  background-color: #45a049;
+  cursor: pointer;
+}
+
+h2{
+  font-size: 1.7rem;
+  color: white;
+  padding-top: 50px;
+}
+.container{
+  position: relative;
+  background-color: #333;
+  width: 100%;
+  height: 100%;
+}
+
+.split{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split.left{
+  left:0;
+  background: url('https://images.unsplash.com/photo-1558677976-54b5a5bac6d7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGdvb2dsZSUyMG1hcHxlbnwwfHwwfHx8MA%3D%3D');
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+.split.right{
+  right:0;
+  background: url('https://images.unsplash.com/photo-1641386337567-c824f91bea87?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGNhbGVuZGVyfGVufDB8fDB8fHww') ;
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+.split.left::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.map-button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12rem;
+  padding: 1rem;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.calender-button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12rem;
+  padding: 1rem;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+

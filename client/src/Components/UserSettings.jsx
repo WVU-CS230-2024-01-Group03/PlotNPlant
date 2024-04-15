@@ -1,18 +1,25 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {
+  updateEmail,
+  updatePassword,
+  sendEmailVerification,
+  applyActionCode,
   sendPasswordResetEmail,
   getAuth,
   verifyBeforeUpdateEmail,
+  deleteUser,
 } from "firebase/auth";
 import { auth } from "../Config/firebase";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function UserSettings() {
-  //states for current user, email, and password
   const [currentUser, setCurrentUser] = useState("");
   const [newEmail, setNewEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const navigate = useNavigate();
 
   //fetchs current user based on auth
   const fetchCurrentUser = async () => {
@@ -57,7 +64,22 @@ function UserSettings() {
         console.log(errorCode);
       });
   };
+  //function to handle deleting the user
+  const handleDeleteAccount = async (password) => {
+    const auth = getAuth();
+    const user = auth.currentUser;
 
+    deleteUser(user)
+      .then(() => {
+        // User deleted.
+        alert("Your account has been deleted.");
+        navigate("/");
+      })
+      .catch((error) => {
+        // An error occurred
+        // ...
+      });
+  };
   return (
     <div>
       <h1>Settings</h1>
@@ -92,6 +114,17 @@ function UserSettings() {
             onClick={handleChangePassword}
           >
             Change Password
+          </button>
+        </p>
+      </div>
+      <div className="delete-account-container">
+        <p>
+          Click here to delete your account:
+          <button
+            className="delete-account-button"
+            onClick={handleDeleteAccount}
+          >
+            Delete Account
           </button>
         </p>
       </div>
