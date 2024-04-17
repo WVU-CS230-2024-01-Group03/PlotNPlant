@@ -1,0 +1,174 @@
+<<<<<<< HEAD:plotnplant/src/Components/LoginPage.css
+.wrapper_loginpage h1{
+=======
+.App {
+  text-align: center;
+}
+
+
+
+.wrapper h1{
+>>>>>>> liz-branch:client/src/Components/Styles.css
+  font-family: 'Calibri', Times, serif;
+  margin-bottom: 5px;
+  font-size: 64pt;
+}
+.wrapper_loginpage img {
+  width: 75px;
+  margin-bottom: 30px;
+}
+
+/* html{
+  background-size:cover;
+  background-position: right;
+  height: 100%;
+<<<<<<< HEAD:plotnplant/src/Components/LoginPage.css
+  padding: 100px;
+}
+.wrapper_loginpage {
+  width: 800px;
+  height:min-content;
+  margin-top: 75px; 
+  
+  background-color: rgba(253, 253, 253, 0.7);
+  border-radius: 75%;
+}
+.wrapper_loginpage .login_input_box{
+=======
+  padding: 10px;
+} */
+
+.page{
+  background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFybXxlbnwwfHwwfHx8MA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  padding: 10px;
+}
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 550px;
+  background-color: rgba(253, 253, 253, 0.7);
+  border-radius: 7%;
+}
+
+.wrapper .input-box{
+>>>>>>> liz-branch:client/src/Components/Styles.css
+  position: relative;
+  height: 50px;
+}
+.login_input_box input{
+  width: 85%;
+  height: 70%;
+  background: transparent;
+  outline: none;
+  border: 2px solid;
+  border-radius: 100px;
+  font-size: 16px;
+  padding: 20px 40px 20px 40px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.login_input_box input::placeholder{
+  color: black;
+}
+.login_input_box .login_icon{
+  position: absolute;
+  right: 765px;
+  top: 25%;
+  font-size: 18px;
+}
+<<<<<<< HEAD:plotnplant/src/Components/LoginPage.css
+.wrapper_loginpage button{
+=======
+/* .wrapper button{
+>>>>>>> liz-branch:client/src/Components/Styles.css
+  width: 30%;
+  height: 25px;
+  margin-top: 10px;
+  border: none;
+  margin-left: 100px;
+  outline: none;
+  border-radius: 45px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+<<<<<<< HEAD:plotnplant/src/Components/LoginPage.css
+}
+.wrapper_loginpage .login_register_account {
+=======
+} */
+.wrapper .register-account {
+>>>>>>> liz-branch:client/src/Components/Styles.css
+  text-align: center;
+  margin-top: 20px;
+}
+.wrapper_loginpage .login_register_account{
+  text-align: center;
+}
+.login_register_account p a {
+  color: rgb(23, 23, 145);
+  text-decoration: none;
+}
+.login_register_account p a:hover{
+  text-decoration: underline;
+}
+
+.button {
+  display: inline-block;
+  width: 75%;
+  padding: 10px 10px;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #030303;
+  background-color: #4CAF50;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #4CAF50;
+}
+.text-input {
+  margin:5px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #45a049;
+}
+
+.login-h2{
+  margin:5px;
+  font-size: 35px;
+}
+.reset-password-input{
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+  width: 500px;
+}
