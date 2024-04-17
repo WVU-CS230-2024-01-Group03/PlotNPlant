@@ -1,46 +1,60 @@
-import React from 'react'
-import './Home.css'
-import { Link } from 'react-router-dom';
-import {auth} from "../Config/firebase";
-import {signOut} from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-
-
+import React from "react";
+import "./Home.css";
+import { Link } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../Config/firebase";
 function Home() {
-  const[active, setActive] = useState("");
+  const [active, setActive] = useState("");
   const navigate = useNavigate();
 
   const logout = async () => {
-    try{
-        await signOut(auth);
-        navigate('/');
-    }catch (err){
-        console.error(err);
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.error(err);
     }
-  }
-
+  };
   return (
     <div>
       <div className="home-top-bar">
         <h1>Plot N' Plant</h1>
-        <button onClick={logout} className="btn logout-button">Logout</button>
+        <button onClick={logout} className="btn logout-button">
+          Logout
+        </button>
         <Link to="/usersettings">
           <button className="btn settings-button">Settings</button>
         </Link>
       </div>
-        <div className={`home-container ${active}`}>
-          <div className="split left" onMouseEnter={()=>setActive('active-left')} onMouseLeave={()=>setActive("")}>
-            <h3>Map</h3>
-            <a href="#" className="map-button">Click Here To View Map</a>
-          </div>
-          <div className="split right" onMouseEnter={()=>setActive('active-right')} onMouseLeave={()=>setActive("")}>
-            <h3>Calender</h3>
-            <a href="/cal" className="calender-button">Click Here To View Calender</a>
-          </div>
+      <div className={`home-container ${active}`}>
+        <div
+          className="split left"
+          onMouseEnter={() => setActive("active-left")}
+          onMouseLeave={() => setActive("")}
+        >
+          <h3>Map</h3>
+          <a href="#" className="map-button">
+            Click Here To View Map
+          </a>
         </div>
+        <div
+          className="split right"
+          onMouseEnter={() => setActive("active-right")}
+          onMouseLeave={() => setActive("")}
+        >
+          <h3>Calender</h3>
+          <a href="/cal" className="calender-button">
+            Click Here To View Calender
+          </a>
+        </div>
+      </div>
+      <div className="split right">
+        <h2>Calender</h2>
+        <a href="/cal" className="calender-button">
+          Click Here To View Calender
+        </a>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
