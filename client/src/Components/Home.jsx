@@ -3,6 +3,8 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../Config/firebase";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Home() {
   const [active, setActive] = useState("");
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ function Home() {
           onMouseLeave={() => setActive("")}
         >
           <h3>Map</h3>
-          <a href="#" className="map-button">
+          <a href="/map" className="map-button">
             Click Here To View Map
           </a>
         </div>
@@ -46,12 +48,6 @@ function Home() {
             Click Here To View Calender
           </a>
         </div>
-      </div>
-      <div className="split right">
-        <h2>Calender</h2>
-        <a href="/cal" className="calender-button">
-          Click Here To View Calender
-        </a>
       </div>
     </div>
   );
