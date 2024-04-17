@@ -4,36 +4,10 @@
 .wrapper h1 {
   font-family: "Calibri", Times, serif;
 }
-/*
-.wrapper h1 {
-  font-family: "Calibri", Times, serif;
->>>>>>> steven-updated-version
-  margin-bottom: 5px;
-  font-size: 64pt;
-}
-*/
 .wrapper_loginpage img {
   width: 75px;
   margin-bottom: 30px;
 }
-
-/* html{
-  background-size:cover;
-  background-position: right;
-  height: 100%;
-  padding: 100px;
-}
-.wrapper_loginpage {
-  width: 800px;
-  height:min-content;
-  margin-top: 75px; 
-  
-  background-color: rgba(253, 253, 253, 0.7);
-  border-radius: 75%;
-}
-.wrapper_loginpage .login_input_box{
-  padding: 10px;
-} */
 .page {
   background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFybXxlbnwwfHwwfHx8MA%3D%3D");
   background-size: cover;
@@ -78,21 +52,6 @@
   font-size: 18px;
 }
 .wrapper_loginpage button {
-  /* .wrapper button{
-  width: 30%;
-  height: 25px;
-  margin-top: 10px;
-  border: none;
-  margin-left: 100px;
-  outline: none;
-  border-radius: 45px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-  cursor: pointer;
-  font-size: 16px;
-  color: black;
-}
-.wrapper_loginpage .login_register_account {
-} */
   text-align: center;
   margin-top: 20px;
 }
