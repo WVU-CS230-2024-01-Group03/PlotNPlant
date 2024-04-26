@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth, GoogleAuthProvider} from "firebase/auth";
-import {getFirestore} from "firebase/firestore";
+import {getFirestore, collection, getDocs} from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -20,8 +20,14 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 export const db = getFirestore(app);
+
+const colRef = collection(db, 'events');
+getDocs(colRef)
+  .then((snapshot)=> {
+    console.log(snapshot.docs)
+  })

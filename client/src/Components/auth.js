@@ -79,7 +79,7 @@ export const Auth = () => {
                 </Link>
             </div>
             <div>
-                Reset Password? <Link to="/resetpassword"><button>Click Here</button></Link>
+                <Link to="/resetpassword"><button className="button">Reset Password? </button></Link>
             </div>
         </div>
 

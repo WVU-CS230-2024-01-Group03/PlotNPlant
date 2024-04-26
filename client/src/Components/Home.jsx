@@ -20,12 +20,16 @@ function Home() {
     <div>
       <div className="home-top-bar">
         <h1>Plot N' Plant</h1>
-        <button onClick={logout} className="btn logout-button">
-          Logout
-        </button>
-        <Link to="/usersettings">
-          <button className="btn settings-button">Settings</button>
-        </Link>
+        <div className="links">
+          <Link to="/">
+            <button onClick={logout} className="btn logout-button">
+              Logout
+            </button>
+            </Link>
+          <Link to="/usersettings">
+            <button className="btn settings-button">Settings</button>
+          </Link>
+        </div>
       </div>
       <div className={`home-container ${active}`}>
         <div
@@ -43,9 +47,9 @@ function Home() {
           onMouseEnter={() => setActive("active-right")}
           onMouseLeave={() => setActive("")}
         >
-          <h3>Calender</h3>
+          <h3>Calendar</h3>
           <a href="/cal" className="calender-button">
-            Click Here To View Calender
+            Click Here To View Calendar
           </a>
         </div>
       </div>

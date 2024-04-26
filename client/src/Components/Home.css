@@ -13,6 +13,17 @@
   color: white;
   z-index: 1;
 }
+
+.links {
+  position: fixed;
+  top: 10;
+  right: 0;
+  padding: 10px; /* Adjust padding as needed */
+  background: none;
+  color: white;
+}
+
+
  /*logout and settings button*/
 .btn {
   position: relative;
@@ -159,12 +170,12 @@ h3{
 
 .map-button:hover{
   background-color: rgb(0, 0, 0);
-  border-color: rgb(0, 0, 0);
+  border-color: rgb(255, 255, 255);
 }
 
 .calender-button:hover{
   background-color: rgb(0, 0, 0);
-  border-color: rgb(0, 0, 0);
+  border-color: rgb(255, 255, 255);
 }
 
 .active-left .left{

@@ -1,6 +1,124 @@
 @import 'rsuite/Calendar/styles/index.css';
 
-.Cal{
-    background-color: white;
-    margin-top: 100px; 
-}
+/* Main container */
+.Cal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    padding: 20px;
+  }
+
+  .Cal-background{
+    background-image: url('https://i.pinimg.com/originals/29/4b/d6/294bd607a153b613491e71187d5d2604.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    filter: blur(2px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  /* Main content */
+  .Cal {
+    text-align: center;
+    background-color: rgb(238, 240, 234);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 1000px !important;
+  }
+
+  /* Title */
+  .Cal h1 {
+    font-size: 2.5em;
+    color: #4CAF50; /* Green */
+    margin-bottom: 20px;
+  }
+  
+  /* Image */
+  .Cal img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+  
+  /* Login link */
+  .Cal p a {
+    color: #4CAF50; /* Green */
+    text-decoration: none;
+  }
+  
+  .Cal p a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Form */
+  .Cal form {
+    text-align: left;
+  }
+  
+  /* Form header */
+  .Cal form header {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  /* Form label */
+  .Cal form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Form input fields */
+  .Cal form input[type="date"],
+  .Cal form input[type="text"] {
+    width: calc(100% - 12px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  /* Submit button */
+  .Cal form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .Cal form button:hover {
+    background-color: #45a049; /* Darker green */
+  }
+  
+  /* Calendar container */
+  .calendar-container {
+    margin-top: 20px;
+  }
+  
+  .grid{
+    background-color: rgb(238, 240, 234);
+    border-radius: 10px;
+  }
+
+  .eventBtns button{
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
