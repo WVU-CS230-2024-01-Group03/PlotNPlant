@@ -24,7 +24,7 @@ Currently we are polishing up the project to make it more appealing to the user.
 
 ## Code Example
 Home Page Functionality
-<code style="background-color: black; color: white; display: block; padding: 10px;">
+```javascript
 function Home() {
   const [active, setActive] = useState("");
   const navigate = useNavigate();
@@ -72,7 +72,7 @@ function Home() {
     </div>
   );
 }
-</code>
+```
 
 ## Installation
 1. Clone the reposistory.
