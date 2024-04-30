@@ -9,6 +9,7 @@ import UserSettings from "./Components/UserSettings";
 import Map from "./Components/Map";
 import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DataParser from "./Components/tempdatatransfer";
 
 function App() {
   return (

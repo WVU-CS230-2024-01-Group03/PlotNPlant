@@ -25,7 +25,14 @@ const createUser = async (e) => {
       alert("Account created successfully!");
       navigate('/');
   } catch (err) {
-    console.log(err);
+    if (err.code === "auth/email-already-in-use") {
+      alert("The email address is already in use. Please use a different email.");
+    } else {
+      // Handle other errors
+      console.error("Error creating user:", err.message);
+      alert("An error occurred while creating your account. Please use valid credentials");
+    }
+
   }
 }
   return(

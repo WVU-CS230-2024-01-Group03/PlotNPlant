@@ -1,156 +1,179 @@
 import { Calendar } from 'rsuite';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Cal.css';
 import {Whisper, Popover, Badge } from 'rsuite';
+import { doc, setDoc, collection, getDocs, deleteDoc} from "firebase/firestore";
+import { db, auth } from "../Config/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
-//Partial implementation of the custom events
 
-//Function to convert hours from military time to standard
-function convertHours(hours){
-    if(hours > 12){
-      hours = hours - 12;
-    }
-    return hours;
-}
 
-//Function for standard time to check am or pm
-function timeofDay(hours){
-    if(hours > 12){
-      return "pm";
-    }
-    return "am";
-}
-
-function newTodo (){
-  //Gets the input for the new todo's title
-  var input = document.getElementById("newTodo").value;
-  //Get input from the date in form
-  var date = new Date(document.getElementById("dateInput").value);
-  //Gets the day from the date variable
-  const day = date.getDate();
-  //Gets the hour from the date variable
-  const hours = date.getHours();
-  //Converts the hours from military to standard
-  const converted = convertHours(hours);
-  //Checks the time of day for standard time
-  const timeDay = timeofDay(hours);
-  //Gets the minitues from date variable
-  const mins = date.getMinutes();
-  //Sets time equal to the time that will display on the calendar
-  const time = converted + ":" + mins + " " + timeDay;
-  //Sets dateTime equal to the day i need plus the word time in order to get from Local Host later.
-  const dayTime = day + "time";
-  //Sets the input for the specific day
-  localStorage.setItem(day,input);
-  //Sets the time for the specific day
-  localStorage.setItem(dayTime, time);
-
-}
-
-//Custom getTodoList function to get the todo list for custom events
-function getTodoList(date) {
-  //Gets the day from the date variable
-  const day = date.getDate();
-  //Checks to see if localStorage has an event for that day
-  if(localStorage.getItem(day) != null){
-    //Stores the dayTime variable to retrieve the time from localStorage
-    const dayTime = day + "time";
-    //Returns the event for that specific day
-    return [
-      {time: localStorage.getItem(dayTime), title: localStorage.getItem(day)}
-    ];
-  }
-  return [];
-}
-
-//Clear method to clear the calendar
-function clear(){
-  localStorage.clear();
-  window.location.reload();
-}
-
-//This is the method that has the hard coded events to the table
-//date returns dayOfWeek, month, year, time, timezone
-//Ex Fri Apr 12 2024 13:49:44 GMT-0400 (Eastern Daylight Time)
-//This is just to look back incase things to wrong
-// function getTodoList(date) {
-//   const day = date.getDate();
-//   // const month = date.getMonth();
-//   switch (day) {
-//     case 12:
-//       return [
-//         { time: '10:30 am', title: localStorage.getItem(12) }
-//       ];
-//     case 15:
-//       return [
-//         { time: '3:00 pm', title: 'Tomato' }
-//       ];
-//     default:
-//       return [];
-//   }
-// }
-
-function renderCell(date) {
-  const list = getTodoList(date);
-  const displayList = list.filter((item, index) => index < 2);
-
-  if (list.length) {
-    const moreCount = list.length - displayList.length;
-    const moreItem = (
-      <li>
-        <Whisper
-          placement="top"
-          trigger="click"
-          speaker={
-            <Popover>
-              {list.map((item, index) => (
-                <p key={index}>
-                  <b>{item.time}</b> - {item.title}
-                </p>
-              ))}
-            </Popover>
-          }
-        >
-          <a>{moreCount} more</a>
-        </Whisper>
-      </li>
-    );
-
-    return (
-      <ul className="calendar-todo-list">
-        {displayList.map((item, index) => (
-          <li key={index}>
-            <Badge /> <b>{item.time}</b> - {item.title}
-          </li>
-        ))}
-        {moreCount ? moreItem : null}
-      </ul>
-    );
-  }
-
-  return null;
-}
 function Cal() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    return (
-      <div className="Cal">
-        <title>Plot N' Plant</title>
-        <h1>Plot N' Plant</h1>
-        <p><Link to="/homePage">
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        FetchEvents(user.uid);
+      } else {
+        console.error("No user signed in");
+        setLoading(false); // Set loading to false when no user is signed in
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    FetchEvents();
+  }, []);
+
+  const FetchEvents = async (userId) => {
+    try {
+      const currentUser = auth.currentUser;
+      if (currentUser) {
+        const userId = currentUser.uid;
+        const userEventRef = collection(db, "userStorage", userId, "userevents");
+        const querySnapshot = await getDocs(userEventRef);
+        const eventsData = [];
+        querySnapshot.forEach((doc) => {
+          eventsData.push({ id: doc.id, ...doc.data() });
+        });
+        console.log("Fetched events:", eventsData);
+        setEvents(eventsData);
+      } else {
+        console.error("No user signed in");
+      }
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+      setLoading(false);
+    }
+  };
+
+  const handleRefresh = () => {
+    FetchEvents();
+  };
+
+  const renderCell = (date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    const eventsForDate = events.filter(event => {
+      const eventDate = new Date(event.id);
+      return (
+        eventDate.getFullYear() === year &&
+        eventDate.getMonth() + 1 === month &&
+        eventDate.getDate() === day
+      );
+    });
+
+    if (eventsForDate.length > 0) {
+      return (
+
+        <ul>Crops Planted
+          {eventsForDate.map((event, index) => (
+            <li key={index}>
+              {event.title}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+    return null;
+  };
+
+  async function newTodo(event) {
+    event.preventDefault();
+    const title = document.getElementById("newTodo").value;
+    const dateTime = document.getElementById("dateInput").value;
+
+    const currentUser = auth.currentUser;
+    if (currentUser) {
+      const userId = currentUser.uid;
+
+      const userEventRef = doc(collection(db, "userStorage", userId, "userevents"), dateTime);
+      try {
+        await setDoc(userEventRef, {
+          title: title,
+          dateTime: dateTime // Add dateTime to the document data
+        });
+        console.log("Event added successfully");
+        FetchEvents(); // Fetch events after adding a new event
+      } catch (error) {
+        console.error("Error adding event: ", error);
+      }
+    } else {
+      alert("No user signed in");
+    }
+  }
+
+  function clear() {
+    window.location.reload();
+  }
+
+  async function removeEvent(event, title) {
+    event.preventDefault();
+
+    const currentUser = auth.currentUser;
+    if (currentUser) {
+      const userId = currentUser.uid;
+      const userEventRef = collection(db, "userStorage", userId, "userevents");
+      try {
+        const querySnapshot = await getDocs(userEventRef);
+        querySnapshot.forEach(async (doc) => {
+          if (doc.data().title === title) {
+            await deleteDoc(doc.ref);
+            console.log("Event deleted successfully");
+            FetchEvents(); // Fetch events after deleting an event
+          }
+        });
+      } catch (error) {
+        console.error("Error deleting event: ", error);
+      }
+    } else {
+      alert("No user signed in");
+    }
+  }
+
+  return (
+    <div className="Cal">
+      <div className='Cal-background'></div>
+      <h1>Plot N' Plant</h1>
+      <p><Link to="/homePage">
         <img src="https://cdn1.iconfinder.com/data/icons/icons-for-a-site-1/64/advantage_eco_friendly-128.png" alt = "Plant"></img>
         </Link></p>
+      <h2>Calendar</h2>
+      <div className="addEvent">
         <h2>New Event</h2>
         <form onSubmit={newTodo}>
           <div>
-            <input type="datetime-local" id="dateInput" /><br/>
-            <input type="text" id="newTodo" placeholder='Todo Message' className="text-input" />
+            <input type="datetime-local" id="dateInput" /><br />
+            <input type="text" id="newTodo" placeholder='Crops Planted' className="text-input" />
           </div>
+          <button type="submit">Add Event</button>
         </form>
-        {<Calendar compact bordered  renderCell={renderCell}/>}
-        <button onClick={clear}>Clear</button>
       </div>
-    );
-    }
+      <div className="calendar-container">
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <Calendar bordered renderCell={renderCell} />
+        )}
+      </div>
+      <div className='eventBtns'>
+        <h2>Delete Event</h2>
+        <form onSubmit={(event) => removeEvent(event, document.getElementById("newDelete").value)}>
+          <input type="text" id="newDelete" placeholder="Title of event to delete" className="text-input" />
+          <button type="submit">Delete Event</button>
+        </form>
+      </div>
+    </div>
+  );
+}
 
-  export default Cal;
+export default Cal;

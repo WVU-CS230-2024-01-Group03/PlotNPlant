@@ -1,0 +1,16 @@
+.map {
+    position:fixed;
+    left:0;
+    width: 75%;
+}
+
+.dateSelect{
+    position: fixed;
+    right: 7.5%;
+}
+
+.dataDisplay{
+    position: fixed;
+    right: 10%;
+    bottom: 50%;
+}
