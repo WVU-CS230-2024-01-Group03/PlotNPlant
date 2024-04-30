@@ -84,12 +84,14 @@ function Home() {
 3. Install dependencies.
    - npm install
    - npm i react-leaflet leaflet
+   - npm i rsuite
+   - npm i react-router-dom
 4. Start the server.
    - npm start
 
 ## API reference
 NOAA API
-
+ - The NOAA API lets us query weather and climate data from NOAA, a national agency that studies and charts weather conditions.
 ## Contribute
 1. Make sure your local repository is up to date with the current one.
    - 'git pull'
