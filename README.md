@@ -1,4 +1,5 @@
 # Plot N' Plant
+![657d6b2cc8e1a3349384a53cfd87019e](https://github.com/WVU-CS230-2024-01-Group03/PlotNPlant/assets/143005825/dcd4037e-7b76-4445-bd6a-a701406123ba)
 
 
 ## Introduction and Motivation
