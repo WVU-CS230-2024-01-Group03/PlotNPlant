@@ -25,7 +25,6 @@ function App() {
           <Route path="/usersettings" element={<UserSettings />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/map" element={<Map />} />
-          <Route path="/data" element={<DataParser/>} />
         </Routes>
       </BrowserRouter>
     </div>
