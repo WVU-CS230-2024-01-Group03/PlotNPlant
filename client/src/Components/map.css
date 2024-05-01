@@ -6,11 +6,69 @@
 
 .dateSelect{
     position: fixed;
-    right: 7.5%;
+    right: 5.5%;
 }
 
-.dataDisplay{
+.homeButton{
     position: fixed;
-    right: 10%;
-    bottom: 50%;
+    right: 6%;
+    bottom: 8%;
+    text-align: center; /* Center align the content */
+    margin-top: 20px; /* Add some space from the top */
 }
+
+/* Style for the link */
+.homeButton a {
+    display: inline-block; /* Make the link behave like a block element */
+    padding: 10px 20px; /* Add padding */
+    background-color: #06b906; /* Blue color */
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Add some rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  /* Hover effect */
+  .homeButton a:hover {
+    background-color: #03750c; /* Darker blue color on hover */
+  }
+
+/* Style for the data display section */
+.dataDisplay {
+    text-align: center; /* Center align the content */
+    position: fixed;
+    right: 1.5%;
+    left: 76.5%;
+    height: 33%;
+    bottom: 35%;
+    background-color: #45ff5e;
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dataDisplay h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the data list */
+  .dataDisplay ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+  }
+
+  .dataDisplay li {
+    margin-bottom: 20px;
+  }
+
+  .dataDisplay li strong {
+    font-weight: bold;
+  }
+  
+  .dataDisplay li:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
