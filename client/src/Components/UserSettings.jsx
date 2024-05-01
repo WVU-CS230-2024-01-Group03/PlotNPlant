@@ -81,24 +81,38 @@ function UserSettings() {
       });
   };
   return (
-    <div>
+  
+  <div class="wrap">
+    <div class="leftbox">
+    <h1>
+        <Link to="/homepage">
+          <button className="click reset-password-button">Home</button>
+        </Link>
+        </h1>
+        <h2>
+        <Link to="/">
+          <button className="click sign-out-button">Sign Out</button>
+        </Link>
+        </h2>
+      </div>
+      <div class="rightbox">
       <h1>Settings</h1>
       <div className="current-user-email">
-        <h1>Current User Email: {currentUser}</h1>
+        <p>Current User Email: {currentUser}</p>
       </div>
       <div className="reset-password-container">
         <p>
           Click here to change your email:
           <input
             type="email"
-            className="text-input"
+            className="input-txt"
             placeholder="Enter new email"
             value={newEmail}
             onChange={(e) => setNewEmail(e.target.value)}
           />
           <Link to="/">
             <button
-              className="reset-password-button"
+              className="bttn reset-password-button"
               onClick={handleChangeEmail}
             >
               Change Email
@@ -110,7 +124,7 @@ function UserSettings() {
         <p>
           Click here to change your password:
           <button
-            className="reset-password-button"
+            className="bttn reset-password-button"
             onClick={handleChangePassword}
           >
             Change Password
@@ -121,17 +135,16 @@ function UserSettings() {
         <p>
           Click here to delete your account:
           <button
-            className="delete-account-button"
+            className="bttn delete-account-button"
             onClick={handleDeleteAccount}
           >
             Delete Account
           </button>
         </p>
       </div>
-      <Link to="/homepage">
-        <button className="reset-password-button">Home</button>
-      </Link>
     </div>
+  </div>
+  
   );
 }
 
