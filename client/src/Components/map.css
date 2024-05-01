@@ -1,74 +1,80 @@
+/* Styles for the .map element */
 .map {
-    position:fixed;
-    left:0;
-    width: 75%;
+  position: fixed; /* Fixed positioning */
+  left: 0; /* Positioned on the left side of the viewport */
+  width: 75%; /* 75% width of the viewport */
 }
 
-.dateSelect{
-    position: fixed;
-    right: 5.5%;
+/* Styles for the .dateSelect element */
+.dateSelect {
+  position: fixed; /* Fixed positioning */
+  right: 5.5%; /* Positioned on the right side with 5.5% offset */
 }
 
-.homeButton{
-    position: fixed;
-    right: 6%;
-    bottom: 8%;
-    text-align: center; /* Center align the content */
-    margin-top: 20px; /* Add some space from the top */
+/* Styles for the .homeButton element */
+.homeButton {
+  position: fixed; /* Fixed positioning */
+  right: 6%; /* Positioned on the right side with 6% offset */
+  bottom: 8%; /* Positioned 8% from the bottom */
+  text-align: center; /* Center align the content */
+  margin-top: 20px; /* Add some space from the top */
 }
 
-/* Style for the link */
+/* Style for the link within .homeButton */
 .homeButton a {
-    display: inline-block; /* Make the link behave like a block element */
-    padding: 10px 20px; /* Add padding */
-    background-color: #06b906; /* Blue color */
-    color: #fff; /* White text color */
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Add some rounded corners */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-  }
-  
-  /* Hover effect */
-  .homeButton a:hover {
-    background-color: #03750c; /* Darker blue color on hover */
-  }
+  display: inline-block; /* Make the link behave like a block element */
+  padding: 10px 20px; /* Add padding */
+  background-color: #06b906; /* Blue color */
+  color: #fff; /* White text color */
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Add some rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
 
-/* Style for the data display section */
+/* Hover effect for the link within .homeButton */
+.homeButton a:hover {
+  background-color: #03750c; /* Darker blue color on hover */
+}
+
+/* Styles for the .dataDisplay element */
 .dataDisplay {
-    text-align: center; /* Center align the content */
-    position: fixed;
-    right: 1.5%;
-    left: 76.5%;
-    height: 33%;
-    bottom: 35%;
-    background-color: #45ff5e;
-    padding: 20px;
-    border-radius: 5px;
-    border: 2px solid #000000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .dataDisplay h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Style for the data list */
-  .dataDisplay ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-  }
+  text-align: center; /* Center align the content */
+  position: fixed; /* Fixed positioning */
+  right: 1.5%; /* Positioned on the right side with 1.5% offset */
+  left: 76.5%; /* Takes remaining space after .map */
+  height: 33%; /* 33% height of the viewport */
+  bottom: 35%; /* Positioned 35% from the bottom */
+  background-color: #45ff5e; /* Background color */
+  padding: 20px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  border: 2px solid #000000; /* Border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
 
-  .dataDisplay li {
-    margin-bottom: 20px;
-  }
+/* Styles for the heading within .dataDisplay */
+.dataDisplay h2 {
+  font-size: 24px; /* Font size */
+  margin-bottom: 20px; /* Bottom margin */
+}
 
-  .dataDisplay li strong {
-    font-weight: bold;
-  }
-  
-  .dataDisplay li:not(:last-child) {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-  }
-  
+/* Styles for the data list within .dataDisplay */
+.dataDisplay ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+}
+
+/* Styles for list items within .dataDisplay */
+.dataDisplay li {
+  margin-bottom: 20px; /* Bottom margin */
+}
+
+/* Styles for strong elements within list items */
+.dataDisplay li strong {
+  font-weight: bold; /* Bold font weight */
+}
+
+/* Styles for list items except the last one within .dataDisplay */
+.dataDisplay li:not(:last-child) {
+  border-bottom: 1px solid #ddd; /* Bottom border */
+  padding-bottom: 10px; /* Bottom padding */
+}

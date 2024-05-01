@@ -1,154 +1,163 @@
+/* Styles for the home top bar */
 .home-top-bar {
-  display: flex;
-  background-color: rgb(0, 0, 0, .1);
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  padding: 6px;
-  color: white;
-  z-index: 1;
+  display: flex; /* Flex container */
+  background-color: rgb(0, 0, 0, .1); /* Semi-transparent black background */
+  width: 100%; /* Full width */
+  position: fixed; /* Fixed positioning */
+  top: 0; /* Positioned at the top */
+  left: 0; /* Positioned at the left */
+  right: 0; /* Positioned at the right */
+  justify-content: center; /* Center align horizontally */
+  align-items: center; /* Center align vertically */
+  height: 50px; /* Height of the bar */
+  padding: 6px; /* Padding */
+  color: white; /* White text color */
+  z-index: 1; /* Ensure it's above other content */
 }
 
+/* Styles for links */
 .links {
-  position: fixed;
-  top: 10;
-  right: 0;
-  padding: 10px; /* Adjust padding as needed */
-  background: none;
-  color: white;
+  position: fixed; /* Fixed positioning */
+  top: 10; /* Positioned 10px from the top */
+  right: 0; /* Positioned at the right */
+  padding: 10px; /* Padding */
+  background: none; /* Transparent background */
+  color: white; /* White text color */
 }
 
-
- /*logout and settings button*/
+/* Styles for buttons */
 .btn {
-  position: relative;
-  background: none;
-  color: white;
-  padding: 0;
-  margin: 30px;
-  margin-left: auto;
-  width: 100px;
-  height: 35px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  border: none;
-  outline: none;
-}
-.btn::after{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 0.175rem;
-  background: white;
-  left: 0;
-  bottom:0;
-  transform: scale(0, 1);
-  transform-origin: 0% 100%;
-  transition: transform 0.3s ease;
-}
-.btn:hover::after{
-  transform: scale(1, 1);
+  position: relative; /* Relative positioning */
+  background: none; /* Transparent background */
+  color: white; /* White text color */
+  padding: 0; /* No padding */
+  margin: 30px; /* Margin */
+  margin-left: auto; /* Left margin auto */
+  width: 100px; /* Width */
+  height: 35px; /* Height */
+  font-family: Verdana, Geneva, Tahoma, sans-serif; /* Font family */
+  font-size: 16px; /* Font size */
+  font-weight: bold; /* Bold font weight */
+  text-transform: uppercase; /* Uppercase text */
+  border: none; /* No border */
+  outline: none; /* No outline */
 }
 
-
-h3{
-  font-size:3.0rem;
-  color: white;
-  position: relative;
-  padding-top: 50px;
-}
-.container{
-  position: relative;
-  background-color: #333;
-  width: 100%;
-  height: 100%;
-}
-
-.split{
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
+/* Animation for button hover effect */
+.btn::after {
+  content: ''; /* Empty content */
+  position: absolute; /* Absolute positioning */
+  width: 100%; /* Full width */
+  height: 0.175rem; /* Height of the line */
+  background: white; /* White background */
+  left: 0; /* Positioned at the left */
+  bottom: 0; /* Positioned at the bottom */
+  transform: scale(0, 1); /* Initially hidden */
+  transform-origin: 0% 100%; /* Origin at bottom left */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
 }
 
-.split.left{
-  left:0;
-  background: url('https://images.unsplash.com/photo-1486754735734-325b5831c3ad?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  background-repeat: no-repeat;
-  background-size:cover;
-}
-.split.right{
-  right:0;
-  background: url('https://images.unsplash.com/photo-1435527173128-983b87201f4d?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') ;
-  background-repeat: no-repeat;
-  background-size:cover;
+/* Animation for button hover effect */
+.btn:hover::after {
+  transform: scale(1, 1); /* Scale to show line */
 }
 
-.split.left::before{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
+/* Styles for headings */
+h3 {
+  font-size: 3.0rem; /* Font size */
+  color: white; /* White text color */
+  position: relative; /* Relative positioning */
+  padding-top: 50px; /* Padding top */
 }
 
-.split.right::before{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
+/* Styles for container */
+.container {
+  position: relative; /* Relative positioning */
+  background-color: #333; /* Background color */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
 }
 
+/* Styles for split */
+.split {
+  position: absolute; /* Absolute positioning */
+  width: 50%; /* 50% width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Hide overflow */
+}
+
+/* Styles for left split */
+.split.left {
+  left: 0; /* Positioned at the left */
+  background: url('https://images.unsplash.com/photo-1486754735734-325b5831c3ad?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Background image */
+  background-repeat: no-repeat; /* No repeat */
+  background-size: cover; /* Cover background */
+}
+
+/* Styles for right split */
+.split.right {
+  right: 0; /* Positioned at the right */
+  background: url('https://images.unsplash.com/photo-1435527173128-983b87201f4d?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Background image */
+  background-repeat: no-repeat; /* No repeat */
+  background-size: cover; /* Cover background */
+}
+
+/* Pseudo elements for split */
+.split.left::before,
+.split.right::before {
+  content: ''; /* Empty content */
+  position: absolute; /* Absolute positioning */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+}
+
+/* Styles for calender button and map button */
 .calender-button,
-.map-button{
-  position: absolute;
-  top: 47%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 24rem;
-  height: 10rem;
-  padding: 1rem;
-  border: 2px solid white;
-  color: white;
-  background-color: black;
-  text-decoration: none;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content:center;
+.map-button {
+  position: absolute; /* Absolute positioning */
+  top: 47%; /* Positioned at 47% from the top */
+  left: 50%; /* Positioned at 50% from the left */
+  transform: translateX(-50%); /* Center horizontally */
+  width: 24rem; /* Width */
+  height: 10rem; /* Height */
+  padding: 1rem; /* Padding */
+  border: 2px solid white; /* Border */
+  color: white; /* White text color */
+  background-color: black; /* Black background color */
+  text-decoration: none; /* No decoration */
+  font-size: 1.5rem; /* Font size */
+  display: flex; /* Flex container */
+  align-items: center; /* Center align vertically */
+  justify-content: center; /* Center align horizontally */
 }
 
+/* Hover effect for calender button and map button */
 .calender-button:hover,
-.map-button:hover{
-  background-color: rgb(41, 175, 8);
-  border-color: rgb(255, 255, 255);
-  transition: .5s ease;
+.map-button:hover {
+  background-color: rgb(41, 175, 8); /* Green background color on hover */
+  border-color: rgb(255, 255, 255); /* White border color on hover */
+  transition: .5s ease; /* Smooth transition */
 }
 
-.active-left .left{
-  width: 75%;
-  transition: width 1s ease;
+/* Active states for left and right split */
+.active-left .left {
+  width: 75%; /* 75% width */
+  transition: width 1s ease; /* Smooth transition */
 }
 
-.active-left .right{
-  width: 25%;
-  transition: width 1s ease;
+.active-left .right {
+  width: 25%; /* 25% width */
+  transition: width 1s ease; /* Smooth transition */
 }
 
-.active-right .left{
-  width: 25%;
-  transition: width 1s ease;
+.active-right .left {
+  width: 25%; /* 25% width */
+  transition: width 1s ease; /* Smooth transition */
 }
 
-.active-right .right{
-  width: 75%;
-  transition: width 1s ease;
+.active-right .right {
+  width: 75%; /* 75% width */
+  transition: width 1s ease; /* Smooth transition */
 }
 
 
