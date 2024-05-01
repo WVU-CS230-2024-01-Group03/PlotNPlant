@@ -11,6 +11,7 @@ const RegisterPage = () => {
   const [email, setEmail] = useState(""); // State variable to hold email input value
   const [password, setPassword] = useState(""); // State variable to hold password input value
   const navigate = useNavigate(); // Hook for programmatic navigation
+  const passwordRegex = /^(?=.[A-Z])(?=.\d)/;
 
   const createUser = async (e) => { // Function to handle form submission
     e.preventDefault(); // Preventing default form submission behavior
@@ -18,6 +19,10 @@ const RegisterPage = () => {
       // Condition to check if email and password are provided
       if (!email || !password) {
         alert("You need to enter an email and password to create an account.");
+        return;
+      }
+      if (!passwordRegex.test(password)) {
+        alert("Password must contain an capital letter and a number.");
         return;
       }
       // Creating user with email and password using Firebase authentication
