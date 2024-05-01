@@ -2,7 +2,6 @@ import { Calendar } from 'rsuite';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Cal.css';
-import {Whisper, Popover, Badge } from 'rsuite';
 import { doc, setDoc, collection, getDocs, deleteDoc} from "firebase/firestore";
 import { db, auth } from "../Config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
@@ -51,10 +50,6 @@ function Cal() {
       console.error("Error fetching events:", error);
       setLoading(false);
     }
-  };
-
-  const handleRefresh = () => {
-    FetchEvents();
   };
 
   const renderCell = (date) => {
@@ -112,9 +107,6 @@ function Cal() {
     }
   }
 
-  function clear() {
-    window.location.reload();
-  }
 
   async function removeEvent(event, title) {
     event.preventDefault();
