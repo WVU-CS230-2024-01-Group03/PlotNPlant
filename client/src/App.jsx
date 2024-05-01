@@ -4,7 +4,6 @@ import RegisterPage from "./Components/RegisterPage";
 import ResetPassword from "./Components/ResetPassword";
 import Home from "./Components/Home";
 import Cal from "./Components/Cal";
-import Settings from "./Components/Settings";
 import UserSettings from "./Components/UserSettings";
 import Map from "./Components/Map";
 import * as React from "react";
@@ -20,7 +19,6 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/cal" element={<Cal />} />
-          <Route path="/settings" element={<Settings />} />
           <Route path="/homepage" element={<Home />} />
           <Route path="/usersettings" element={<UserSettings />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
