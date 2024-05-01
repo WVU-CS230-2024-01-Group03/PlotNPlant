@@ -2,16 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { TileLayer, MapContainer, Popup } from "react-leaflet";
 import { Marker } from "react-leaflet";
 import "./map.css";
+import { Link } from 'react-router-dom';
 import { db } from "../Config/firebase";
 import { getDocs, collection, query, where } from "firebase/firestore";
 
+/**
+ * Functional component representing a map displaying markers for different counties.
+ */
 export default function Map() {
-
+  // State variables to manage selected month, county, county data, and month string
   const [selectedMonth, setSelectedMonth] = useState('');
   const [selectedCounty, setSelectedCounty] = useState(null);
   const [countyData, setCountyData] = useState([]);
-  const [monthString, setMonthString] = useState('No month selected'); // Initialize monthString as a state variable
-
+  const [monthString, setMonthString] = useState('No month selected'); 
 
   useEffect(() => {
     // Fetch data from Firebase when selectedMonth or selectedCounty changes
@@ -32,20 +35,31 @@ export default function Map() {
     fetchData();
   }, [selectedMonth, selectedCounty, monthString]); // Make sure monthString is a dependency
 
+  /**
+   * Handles the change event when selecting a month.
+   * @param {Object} event - The change event object.
+   */
   const handleMonthChange = (event) => {
     setSelectedMonth(event.target.value);
   };
 
+  /**
+   * Handles the click event on a marker.
+   * @param {string} county - The name of the selected county.
+   */
   const handleMarkerClick = (county) => {
     setSelectedCounty(county);
-  
     console.log("Selected County: ", selectedCounty);
   };
 
+  /**
+   * Handles the form submission to set the month string.
+   */
   const handleSubmit = () => {
     const month = selectedMonth.split("-")[1];
     console.log(month);
     switch(month){
+      // Set month string based on the selected month
       case "01":
         setMonthString('January');
         break;
@@ -87,7 +101,6 @@ export default function Map() {
         break;
     }
   };
-
    return (
     <div>
       <h1>Map of West Virginia</h1>
@@ -481,26 +494,32 @@ export default function Map() {
       </div>
       {selectedCounty && <p>Selected County: {selectedCounty}</p>}
       <div className='dataDisplay'>
-  <h2>Data for {selectedCounty} in {selectedMonth}</h2>
-  {console.log("County Data:", countyData)} {/* Add this line for debugging */}
-  <ul>
-    {countyData.length === 0 ? (
-      <li>No data available</li>
-    ) : (
-      countyData.map((item, index) => {
-        console.log("Item:", item); // Add this line for debugging
-        return (
-          <li key={index}>
-            <strong>Average Temperature: </strong> {item[0]}<br />
-            <strong>Average Precipitation: </strong> {item[1]}<br />
-            <strong>Maximum Temperature: </strong> {item[2]}<br />
-            <strong>Minimum Temperature: </strong> {item[3]}<br />
-          </li>
-        );
-      })
-    )}
-  </ul>
-</div>
+        <h2>Data for {selectedCounty} in {monthString}</h2>
+        {console.log("County Data:", countyData)} {/* Add this line for debugging */}
+        <ul>
+          {countyData.length === 0 ? (
+            <li>No data available</li>
+          ) : (
+            countyData.map((item, index) => {
+              console.log("Item:", item); // Add this line for debugging
+              return (
+                <li key={index}>
+                  <strong>Average Temperature (F): </strong> {String(item[0]).substring(0, 5)}<br />
+                  <br />
+                  <strong>Average Precipitation (mm): </strong> {String(item[1]).substring(0, 5)}<br />
+                  <br />
+                  <strong>Maximum Temperature (F): </strong> {String(item[2]).substring(0, 5)}<br />
+                  <br />
+                  <strong>Minimum Temperature (F): </strong> {String(item[3]).substring(0, 5)}<br />
+                </li>
+              );
+            })
+          )}
+        </ul>
+      </div>
+      <div className='homeButton'>
+        <h1><Link to="/homePage">Home Page</Link></h1>
+      </div>
 
     </div>
   );

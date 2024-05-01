@@ -1,64 +1,80 @@
-.wrapper_settingspage h1{
-    font-family: 'Calibri', Times, serif;
-    margin-bottom: 5px;
-    font-size: 64pt;
-  }
-  .wrapper_settingspage img {
-    width: 150px;
-    height: vh;
-    margin-bottom: 30px;
-  }
-  html{
-    background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFybXxlbnwwfHwwfHx8MA%3D%3D");
-    background-size:cover;
-    background-position: center;
-    height: 100%;
-    padding: 10px;
-  }
-  .wrapper_settingspage {
-    width: 900px;
-    height:min-content;
-    margin-top: 150px; 
-    background-color: rgba(253, 253, 253, 0.7);
-    border-radius: 10%;
-    align-self: center;
+/* Styles for settings page wrapper heading */
+.wrapper_settingspage h1 {
+  font-family: 'Calibri', Times, serif; /* Set font family */
+  margin-bottom: 5px; /* Set bottom margin */
+  font-size: 64pt; /* Set font size */
+}
 
-  }
-  .wrapper_settingspage .input-box{
-    position: relative;
-    height: 50px;
-  }
-  .input-box input{
-    width: 85%;
-    height: 70%;
-    background: transparent;
-    outline: none;
-    border: 2px solid;
-    border-radius: 40px;
-    font-size: 16px;
-    padding: 20px 40px 20px 20px;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  .input-box input::placeholder{
-    color: black;
-  }
-  .input-box .icon{
-    position:relative;
-    right: 30px;
-    top: 5%;
-    font-size: 16px;
-  }
-  .wrapper_settingspage button{
-    width: 30%;
-    height: 35px;
-    margin-top: 10px;
-    border: none;
-    outline: none;
-    border-radius: 45px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 16px;
-    color: black;
-  }
+/* Styles for images within settings page wrapper */
+.wrapper_settingspage img {
+  width: 150px; /* Set width */
+  height: vh; /* Set height */
+  margin-bottom: 30px; /* Set bottom margin */
+}
+
+/* Styles for the HTML element */
+html {
+  background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFybXxlbnwwfHwwfHx8MA%3D%3D"); /* Set background image */
+  background-size: cover; /* Set background size to cover */
+  background-position: center; /* Set background position to center */
+  height: 100%; /* Set height to 100% */
+  padding: 10px; /* Set padding */
+}
+
+/* Styles for settings page wrapper */
+.wrapper_settingspage {
+  width: 900px; /* Set width */
+  height: min-content; /* Set height to min-content */
+  margin-top: 150px; /* Set top margin */
+  background-color: rgba(253, 253, 253, 0.7); /* Set background color with opacity */
+  border-radius: 10%; /* Set border radius */
+  align-self: center; /* Align self to center */
+}
+
+/* Styles for input box within settings page wrapper */
+.wrapper_settingspage .input-box {
+  position: relative; /* Set position to relative */
+  height: 50px; /* Set height */
+}
+
+/* Styles for input within input box */
+.input-box input {
+  width: 85%; /* Set width */
+  height: 70%; /* Set height */
+  background: transparent; /* Set background to transparent */
+  outline: none; /* Remove outline */
+  border: 2px solid; /* Set border */
+  border-radius: 40px; /* Set border radius */
+  font-size: 16px; /* Set font size */
+  padding: 20px 40px 20px 20px; /* Set padding */
+  font-family: 'Times New Roman', Times, serif; /* Set font family */
+}
+
+/* Styles for input placeholder */
+.input-box input::placeholder {
+  color: black; /* Set placeholder color */
+}
+
+/* Styles for icon within input box */
+.input-box .icon {
+  position: relative; /* Set position to relative */
+  right: 30px; /* Set right position */
+  top: 5%; /* Set top position */
+  font-size: 16px; /* Set font size */
+}
+
+/* Styles for buttons within settings page wrapper */
+.wrapper_settingspage button {
+  width: 30%; /* Set width */
+  height: 35px; /* Set height */
+  margin-top: 10px; /* Set top margin */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  border-radius: 45px; /* Set border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1); /* Set box shadow */
+  cursor: pointer; /* Set cursor to pointer */
+  font-size: 16px; /* Set font size */
+  color: black; /* Set text color */
+}
 
   
