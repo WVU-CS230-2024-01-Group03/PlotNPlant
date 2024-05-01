@@ -6,12 +6,15 @@ import { doc, setDoc, collection, getDocs, deleteDoc} from "firebase/firestore";
 import { db, auth } from "../Config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
-
-
+/**
+ * Functional component representing a calendar view with event management functionality.
+ */
 function Cal() {
+  // State variables to manage events and loading status
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Effect hook to fetch events when user authentication state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -22,13 +25,18 @@ function Cal() {
       }
     });
 
-    return () => unsubscribe();
+    return () => unsubscribe(); // Clean up subscription on unmount
   }, []);
 
+  // Effect hook to fetch events on component mount
   useEffect(() => {
     FetchEvents();
   }, []);
 
+  /**
+   * Fetches events from Firebase Firestore for the authenticated user.
+   * @param {string} userId - ID of the authenticated user
+   */
   const FetchEvents = async (userId) => {
     try {
       const currentUser = auth.currentUser;
@@ -52,6 +60,11 @@ function Cal() {
     }
   };
 
+  /**
+   * Renders events for a specific date on the calendar.
+   * @param {Date} date - Date object for the cell being rendered
+   * @returns {JSX.Element} - JSX markup for events on the date
+   */
   const renderCell = (date) => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
@@ -68,7 +81,6 @@ function Cal() {
 
     if (eventsForDate.length > 0) {
       return (
-
         <ul>Crops Planted
           {eventsForDate.map((event, index) => (
             <li key={index}>
@@ -82,6 +94,10 @@ function Cal() {
     return null;
   };
 
+  /**
+   * Adds a new event to the Firebase Firestore.
+   * @param {Event} event - Form submission event
+   */
   async function newTodo(event) {
     event.preventDefault();
     const title = document.getElementById("newTodo").value;
@@ -107,7 +123,11 @@ function Cal() {
     }
   }
 
-
+  /**
+   * Removes an event from the Firebase Firestore.
+   * @param {Event} event - Form submission event
+   * @param {string} title - Title of the event to be deleted
+   */
   async function removeEvent(event, title) {
     event.preventDefault();
 
@@ -132,6 +152,7 @@ function Cal() {
     }
   }
 
+  // JSX markup for the calendar component and event management forms
   return (
     <div className="Cal">
       <div className='Cal-background'></div>

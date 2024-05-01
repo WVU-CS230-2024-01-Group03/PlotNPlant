@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function UserSettings() {
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState("No account logged in");
   const [newEmail, setNewEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const navigate = useNavigate();
@@ -25,11 +25,14 @@ function UserSettings() {
   const fetchCurrentUser = async () => {
     try {
       const user = auth.currentUser;
-      if (user) {
+      if (user.email) {
         setCurrentUser(user.email);
+      } else if (user){
+        setCurrentUser("Logged in with Google Provider")
       } else {
-        console.log("No user is logged in");
+        alert("No user is logged in");
       }
+
     } catch (err) {
       console.log(err);
     }

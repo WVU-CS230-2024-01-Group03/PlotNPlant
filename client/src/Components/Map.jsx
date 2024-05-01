@@ -6,13 +6,15 @@ import { Link } from 'react-router-dom';
 import { db } from "../Config/firebase";
 import { getDocs, collection, query, where } from "firebase/firestore";
 
+/**
+ * Functional component representing a map displaying markers for different counties.
+ */
 export default function Map() {
-
+  // State variables to manage selected month, county, county data, and month string
   const [selectedMonth, setSelectedMonth] = useState('');
   const [selectedCounty, setSelectedCounty] = useState(null);
   const [countyData, setCountyData] = useState([]);
-  const [monthString, setMonthString] = useState('No month selected'); // Initialize monthString as a state variable
-
+  const [monthString, setMonthString] = useState('No month selected'); 
 
   useEffect(() => {
     // Fetch data from Firebase when selectedMonth or selectedCounty changes
@@ -33,20 +35,31 @@ export default function Map() {
     fetchData();
   }, [selectedMonth, selectedCounty, monthString]); // Make sure monthString is a dependency
 
+  /**
+   * Handles the change event when selecting a month.
+   * @param {Object} event - The change event object.
+   */
   const handleMonthChange = (event) => {
     setSelectedMonth(event.target.value);
   };
 
+  /**
+   * Handles the click event on a marker.
+   * @param {string} county - The name of the selected county.
+   */
   const handleMarkerClick = (county) => {
     setSelectedCounty(county);
-  
     console.log("Selected County: ", selectedCounty);
   };
 
+  /**
+   * Handles the form submission to set the month string.
+   */
   const handleSubmit = () => {
     const month = selectedMonth.split("-")[1];
     console.log(month);
     switch(month){
+      // Set month string based on the selected month
       case "01":
         setMonthString('January');
         break;
@@ -88,7 +101,6 @@ export default function Map() {
         break;
     }
   };
-
    return (
     <div>
       <h1>Map of West Virginia</h1>
@@ -506,7 +518,7 @@ export default function Map() {
         </ul>
       </div>
       <div className='homeButton'>
-        <h1><Link to="/homePage">HomePage</Link></h1>
+        <h1><Link to="/homePage">Home Page</Link></h1>
       </div>
 
     </div>

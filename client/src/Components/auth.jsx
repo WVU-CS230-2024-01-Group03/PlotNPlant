@@ -33,9 +33,15 @@ export const Auth = () => {
 
     const signInWithGoogle = async () => {
         try{
-            await signInWithPopup(auth,googleProvider);
-        }catch (err){
-            console.error(err);
+            const userCredentials = await signInWithPopup(auth,googleProvider);
+            const user = userCredentials.user;
+            if (user) {
+                navigate('/homepage');
+            } else {
+                alert('Could not login with google.');
+            }
+        } catch (err) {
+            alert('Invalid login. Please try again.');
         }
     }
     const createUser = async () => {
